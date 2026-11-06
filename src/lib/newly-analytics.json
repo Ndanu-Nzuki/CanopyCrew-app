@@ -1,6 +1,7 @@
 {
-  "ingestKey": "",
-  "apiUrl": "",
+  "ingestKey": "niak_93Xn8P8N8MyIw9deWzTNK7waKfL89kY1",
+  "apiUrl": "https://api.newly.app",
   "enabled": true,
-  "samplingRate": null
+  "samplingRate": 1,
+  "projectId": "4928d610-a973-4bbf-851d-23af775fe9ea"
 }
