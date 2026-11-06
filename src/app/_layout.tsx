@@ -1,16 +1,27 @@
 import '@/global.css';
 
 import Constants from 'expo-constants';
-import { DarkTheme, DefaultTheme, Slot, ThemeProvider } from 'expo-router';
+import {
+  SourceSerif4_400Regular_Italic,
+  SourceSerif4_600SemiBold,
+  SourceSerif4_700Bold,
+  useFonts,
+} from '@expo-google-fonts/source-serif-4';
+import { DefaultTheme, Stack, ThemeProvider } from 'expo-router';
 import { HeroUINativeProvider } from 'heroui-native';
-import { useColorScheme } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
 import { Newly } from '@newly/sdk-react-native';
 
 import { ThemeSwitchHost } from '@/components/theme-switch-host';
+import { AuthProvider } from '@/contexts/AuthContext';
+import { WorkspaceSync } from '@/features/canopy/components/workspace-sync';
 import { hideExpoDeveloperUi } from '@/lib/dev-menu';
 import generatedAnalytics from '@/lib/newly-analytics.json';
+import { Uniwind } from 'uniwind';
+
+// Canopy Crew is designed as a light field-guide palette only.
+Uniwind.setTheme('light');
 
 type NewlyAnalyticsExtra = {
   newlyAnalyticsEnabled?: unknown;
@@ -74,20 +85,25 @@ if (analytics.enabled !== false && newlyIngestKey && newlyApiUrl) {
 // pre-baked into the scaffold (along with MMKV for persistence and Skia for charts) so the
 // native module set is fixed up front and screen work hot-reloads without a native rebuild.
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
+  const [fontsLoaded] = useFonts({
+    SourceSerif4_400Regular_Italic,
+    SourceSerif4_600SemiBold,
+    SourceSerif4_700Bold,
+  });
+  if (!fontsLoaded) return null;
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <KeyboardProvider>
         <HeroUINativeProvider>
-          <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-            {/* ThemeSwitchHost is always mounted (zero cost when unused) so any theme
-                toggle switches via useThemeSwitch() and the circular reveal plays. */}
+          <ThemeProvider value={DefaultTheme}>
             <ThemeSwitchHost>
-              {/* The scaffold boots straight into src/app/index.tsx (the Newly welcome
-                  screen), no tab bar. src/components/app-tabs.tsx is the NativeTabs
-                  reference: when the app has tab routes, render <AppTabs /> here
-                  instead of <Slot /> (explore.tsx is its second tab). */}
-              <Slot />
+              <AuthProvider>
+                <WorkspaceSync />
+                <Stack screenOptions={{ headerShown: false }}>
+                  <Stack.Screen name="(tabs)" />
+                  <Stack.Screen name="sign-in" options={{ presentation: 'modal' }} />
+                </Stack>
+              </AuthProvider>
             </ThemeSwitchHost>
           </ThemeProvider>
         </HeroUINativeProvider>

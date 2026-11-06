@@ -1,53 +1,26 @@
-# Design spec (locked)
+# Canopy Crew — design plan (shown in Newly as "App Companion")
 
-> This file is the app's locked visual identity. The infer/plan step writes it
-> before the build; the build reads it and may not contradict it; the refine path
-> updates it. Screens are built from the **tokens** (`src/global.css`) and the
-> **HeroUI Native** component library — never improvised per screen.
+**Identity:** a botanist's field guide for São Paulo's streets. Calm, papery, precise.
 
-## Identity
+## Palette (from the brief, mandatory)
+| Token | Hex | Use |
+|---|---|---|
+| forest | #183D2B | logo, headings, primary buttons, celebration card |
+| leaf | #477A55 | links, secondary actions, icons, selected filter chips |
+| sage | #A8C5A0 | line-art sprigs, decorative details, the My Workspace pill |
+| mint | #E7EFDF | panels and alternate section backgrounds |
+| paper | #F7F6EF | page background |
+| ochre | #D5A66B | small highlights only (Power lines chip, warnings) |
+| water / mulch / compost / prune | blue / brown / green / amber | care-calendar dots and task icons |
 
-- **Vibe:** _(e.g. calm, premium, playful, editorial)_ — clean & modern (default)
-- **Mode:** light + dark (system)
-- **Accent:** Newly pink (the scaffold default) — `--accent` in `src/global.css`
-- **Shape:** soft, `--radius: 0.75rem` (cozy)
-- **Type:** system font (SF Pro on iOS, Roboto on Android); no custom display font
+## Type
+- Source Serif 4 (600/700 and italic) for titles, site and plant names, and scientific names.
+- System sans for body text. Sizes run small: row titles 13, secondary 9–11, section headings around 20, page titles 32.
 
-## Dials
+## Layout
+- Each tab opens with the shared header (leaf mark, "Canopy Crew" wordmark, My Workspace pill), then an eyebrow label with a hairline, a serif title and subtitle, and a sage sprig on the right.
+- Mint panels have no shadows. Photos have rounded corners; white cards have a hairline border.
+- The liquid glass tab bar has four tabs: Sites, Catalogue, Workspace, About. Contact lives in the About tab.
 
-See `design/dials.json`. These three dials set the overall feel:
-
-- **variance** — `low | medium | high`: how much screens may differ from one
-  another. `low` = strong consistency (every screen shares the same rhythm and
-  components); `high` = each screen can have a distinct hero treatment.
-- **motion** — `calm | standard | lively`: animation intensity. `calm` =
-  minimal, quick fades; `lively` = springy transitions, playful micro-interactions.
-- **density** — `compact | cozy | spacious`: spacing + radius rhythm. Drives the
-  base `--radius` and the default padding/gap scale used across screens.
-
-Defaults: variance `low`, motion `standard`, density `cozy`.
-
-## Screens
-
-> The infer/plan step lists the screens to build here (one bullet each, with the
-> key sections per screen). The build implements exactly these.
->
-> The scaffold boots into `src/app/index.tsx`, the Newly welcome screen (tap the
-> icon, it rains icons). It is the brand placeholder the build REPLACES, never a
-> pattern to extend. The welcome screen's modules are the vendored npm package
-> `@newly/welcome` (`node_modules/@newly/welcome`); the build must NOT edit or
-> delete that package — it replaces the screen by rewriting `src/app/index.tsx`
-> and dropping the `@newly/welcome` import. `explore.tsx` stays as the reference
-> screen for Section / Card / ListRow / Segmented / confirmDelete. Replace this
-> list with the app's real screens.
-
-- Welcome (placeholder — replaced by the build)
-- Explore (reference screen; not in the tab bar until the app has tabs)
-
-## Anti-slop reminders
-
-- Tokens only — no raw hex, no magic spacing numbers in components.
-- HeroUI Native components + Uniwind `className`; StyleSheet only for native-only
-  surfaces (NativeTabs, `@expo/ui`, glass).
-- Native feel: system font, 44pt touch targets, SF Symbols (not emoji) for icons,
-  haptics on key actions, respect safe areas.
+## Signature moment
+Ticking a care task: the checkbox fills, a small leaf sprouts up and fades, and the row settles to a struck-through, quieter state, with a success haptic. When every task this week is done, a forest "Week complete!" card rises in.

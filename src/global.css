@@ -19,29 +19,99 @@
  * design/DESIGN.md for the identity this encodes.
  * ════════════════════════════════════════════════════════════════════════════ */
 
-/* @newly:tokens:start — the lock_design step and the refine path rewrite EVERYTHING
- * between these markers. Hand-edits here are allowed but will be replaced on refine. */
-
-/* Brand accent (primary action color), per color scheme. OKLCH like HeroUI.
- * The scaffold default is Newly pink (the app icon's magenta) so the Welcome
- * screen is on-brand out of the box; lock_design replaces it with the app's own. */
+/* @newly:tokens:start — Canopy Crew "Field Guide" palette (light-only by design). */
 @layer theme {
   :root {
     @variant light {
-      --accent: oklch(0.66 0.26 325);
-      --accent-foreground: oklch(0.99 0 0);
+      --background: #F7F6EF;
+      --foreground: #183D2B;
+      --surface: #E7EFDF;
+      --surface-foreground: #183D2B;
+      --surface-secondary: #DCE7D3;
+      --surface-tertiary: #FFFFFF;
+      --accent: #183D2B;
+      --accent-foreground: #FFFFFF;
+      --default: #E7EFDF;
+      --default-foreground: #183D2B;
+      --muted: #6B7F70;
+      --border: #D3DFCB;
+      --separator: #D3DFCB;
+      --field-background: #FFFFFF;
+      --field-foreground: #183D2B;
+      --field-placeholder: #8A998C;
+      --field-border: #D3DFCB;
+      --success: #477A55;
+      --danger: #B4533A;
+
+      --color-forest: #183D2B;
+      --color-leaf: #477A55;
+      --color-sage: #A8C5A0;
+      --color-mint: #E7EFDF;
+      --color-mint-deep: #D6E4CF;
+      --color-paper: #F7F6EF;
+      --color-ochre: #D5A66B;
+      --color-ochre-soft: #F1E1C6;
+      --color-ochre-ink: #9A6326;
+      --color-ink-soft: #3E5A49;
+      --color-water: #5B9BD8;
+      --color-mulch: #93602F;
+      --color-compost: #3E9A63;
+      --color-prune: #E9A23B;
     }
     @variant dark {
-      --accent: oklch(0.72 0.22 325);
-      --accent-foreground: oklch(0.16 0 0);
+      --background: #F7F6EF;
+      --foreground: #183D2B;
+      --surface: #E7EFDF;
+      --surface-foreground: #183D2B;
+      --surface-secondary: #DCE7D3;
+      --surface-tertiary: #FFFFFF;
+      --accent: #183D2B;
+      --accent-foreground: #FFFFFF;
+      --default: #E7EFDF;
+      --default-foreground: #183D2B;
+      --muted: #6B7F70;
+      --border: #D3DFCB;
+      --separator: #D3DFCB;
+      --field-background: #FFFFFF;
+      --field-foreground: #183D2B;
+      --field-placeholder: #8A998C;
+      --field-border: #D3DFCB;
+      --success: #477A55;
+      --danger: #B4533A;
+
+      --color-forest: #183D2B;
+      --color-leaf: #477A55;
+      --color-sage: #A8C5A0;
+      --color-mint: #E7EFDF;
+      --color-mint-deep: #D6E4CF;
+      --color-paper: #F7F6EF;
+      --color-ochre: #D5A66B;
+      --color-ochre-soft: #F1E1C6;
+      --color-ochre-ink: #9A6326;
+      --color-ink-soft: #3E5A49;
+      --color-water: #5B9BD8;
+      --color-mulch: #93602F;
+      --color-compost: #3E9A63;
+      --color-prune: #E9A23B;
     }
   }
 }
 
-/* Base corner radius — the DENSITY dial's lever. Every rounded-* utility derives
- * from this (HeroUI: --radius-2xl = --radius * 2, etc.). Larger = softer/cozier. */
 @theme {
   --radius: 0.75rem;
+  --font-title: 'SourceSerif4_600SemiBold';
+  --font-title-bold: 'SourceSerif4_700Bold';
+  --font-title-italic: 'SourceSerif4_400Regular_Italic';
+  --text-3xs: 0.5625rem;
+  --text-3xs--line-height: 0.75rem;
+  --text-2xs: 0.625rem;
+  --text-2xs--line-height: 0.875rem;
+  --text-caption: 0.6875rem;
+  --text-caption--line-height: 0.9375rem;
+  --text-row: 0.8125rem;
+  --text-row--line-height: 1.125rem;
+  --text-title: 2rem;
+  --text-title--line-height: 2.25rem;
 }
 /* @newly:tokens:end */
 

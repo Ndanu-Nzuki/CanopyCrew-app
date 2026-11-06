@@ -29,13 +29,23 @@ export default function AppTabs() {
   return (
     <NativeTabs backgroundColor={colors.background} tintColor={accent}>
       <NativeTabs.Trigger name="index" disableAutomaticContentInsets>
-        <NativeTabs.Trigger.Label>Home</NativeTabs.Trigger.Label>
-        <NativeTabs.Trigger.Icon sf="house.fill" md="home" />
+        <NativeTabs.Trigger.Label>Sites</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon sf="map" md="map" />
       </NativeTabs.Trigger>
 
-      <NativeTabs.Trigger name="explore" disableAutomaticContentInsets>
-        <NativeTabs.Trigger.Label>Explore</NativeTabs.Trigger.Label>
-        <NativeTabs.Trigger.Icon sf="safari.fill" md="explore" />
+      <NativeTabs.Trigger name="catalogue" disableAutomaticContentInsets>
+        <NativeTabs.Trigger.Label>Catalogue</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon sf="leaf" md="eco" />
+      </NativeTabs.Trigger>
+
+      <NativeTabs.Trigger name="workspace" disableAutomaticContentInsets>
+        <NativeTabs.Trigger.Label>Workspace</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon sf="list.clipboard" md="assignment" />
+      </NativeTabs.Trigger>
+
+      <NativeTabs.Trigger name="about" disableAutomaticContentInsets>
+        <NativeTabs.Trigger.Label>About</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon sf="info.circle" md="info" />
       </NativeTabs.Trigger>
     </NativeTabs>
   );
