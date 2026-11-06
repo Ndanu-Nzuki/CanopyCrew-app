@@ -17,7 +17,7 @@ interface RecommendedCardProps {
 export function RecommendedCard({ plant, chosen, onToggle }: RecommendedCardProps) {
   const router = useRouter();
   return (
-    <View className="w-32 overflow-hidden rounded-xl border border-border bg-white">
+    <View className="w-36 overflow-hidden rounded-xl border border-border bg-white">
       <Pressable
         onPress={() => router.push({ pathname: '/plant/[id]', params: { id: plant.species_id } })}
         accessibilityRole="button"
