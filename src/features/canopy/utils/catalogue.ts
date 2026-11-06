@@ -132,13 +132,13 @@ export const filterSpecies = ({ search, sun, heights, wireSafe, sort }: Catalogu
     return true;
   });
   if (sort === 'height') {
-    return list.toSorted(
+    return list.slice().sort(
       (a, b) => a.physical_profile.mature_height_meters - b.physical_profile.mature_height_meters,
     );
   }
-  if (sort === 'name') return list.toSorted((a, b) => commonName(a).localeCompare(commonName(b)));
+  if (sort === 'name') return list.slice().sort((a, b) => commonName(a).localeCompare(commonName(b)));
   if (sort === 'growth') {
-    return list.toSorted(
+    return list.slice().sort(
       (a, b) => b.estimates.growth_rate_cm_per_year - a.estimates.growth_rate_cm_per_year,
     );
   }

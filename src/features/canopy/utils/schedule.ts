@@ -139,7 +139,7 @@ export const buildSchedule = (plants: Species[], startKey: string | null): Sched
         date: first.date,
       };
     })
-    .toSorted((a, b) => a.date.localeCompare(b.date) || a.type.localeCompare(b.type));
+    .sort((a, b) => a.date.localeCompare(b.date) || a.type.localeCompare(b.type));
 };
 
 export const weekRange = (ref: Date) => {

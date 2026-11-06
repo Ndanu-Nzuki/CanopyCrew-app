@@ -24,14 +24,14 @@ export function SiteRow({ site }: { site: Site }) {
     <Pressable
       onPress={() => router.push({ pathname: '/site/[id]', params: { id: site.site_id } })}
       accessibilityRole="button"
-      accessibilityLabel={site.name}
+      accessibilityLabel={meta.title}
     >
-      <View className="h-40 flex-row overflow-hidden rounded-2xl bg-mint">
-        <Image source={meta.image} className="h-full w-2/5" contentFit="cover" />
+      <View className="min-h-36 flex-row overflow-hidden rounded-2xl bg-mint">
+        <Image source={meta.image} className="w-2/5" contentFit="cover" />
         <View className="flex-1 justify-between gap-1 p-3">
           <View className="gap-1">
-            <Text className="font-title text-lg leading-tight text-forest" numberOfLines={2}>
-              {site.name}
+            <Text className="font-title text-lg leading-tight text-forest" numberOfLines={1}>
+              {meta.title}
             </Text>
             <View className="flex-row items-center gap-1">
               <Icon name="location-outline" size={11} colorClassName="accent-leaf" />
